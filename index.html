@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy text to clipboard</title>
+</head>
+<body>  
+
+    <input type="text" value="JS is cool" id="textToCopy">
+    <button class="btn btn-warning" onclick="copyText()">Copy</button>
+    <hr>
+    <input type="text">
+
+    <script>
+        async function copyText() {
+            const text = 
+            document.getElementById("textToCopy").value;
+            try {
+                await navigator.clipboard.writeText(text);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+        }
+    </script>
+</body>
+</html>
